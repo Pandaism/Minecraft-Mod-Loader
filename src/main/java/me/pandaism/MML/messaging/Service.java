@@ -67,9 +67,7 @@ public class Service {
         }
     }
 
-    private void uploadMods(String json) throws IOException {
-        URL url = new URL(this.url + "in.php?key=" + this.key + "&action=post&json=" + json);
-        URLConnection connection = url.openConnection();
+    private String checkContent(URLConnection connection) throws IOException {
         InputStream inputStream = connection.getInputStream();
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         byte[] buffer = new byte[8192];
@@ -81,7 +79,20 @@ public class Service {
 
         String contentType = connection.getContentType();
         String encoding = contentType.substring(contentType.indexOf("=") + 1);
-        System.out.println(new String(byteArrayOutputStream.toByteArray(), encoding));
+        return new String(byteArrayOutputStream.toByteArray(), encoding);
+    }
+
+    private void uploadMods(String json) throws IOException {
+        URL url = new URL(this.url + "in.php?key=" + this.key + "&action=post&json=" + json);
+        URLConnection connection = url.openConnection();
+
+        String content = checkContent(connection);
+
+        if(content.equals(json)) {
+            System.out.println("Mod list updated successfully.");
+        } else {
+            System.out.println("Mod list updated unsuccessful.");
+        }
 
     }
 
