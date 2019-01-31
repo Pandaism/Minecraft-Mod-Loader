@@ -4,7 +4,8 @@
 - Argument usage 
     - '-k' for api-key
     - '-a' for action
-- No more pesky text file
+    - '-f' for mod list file
+- No more pesky text file to download mods
 
 #### [1.0.0] 2019-28-1
 ##### Initial Release
