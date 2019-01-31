@@ -4,8 +4,6 @@ import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import me.pandaism.MML.file.Config;
 import me.pandaism.MML.parser.json.ModList;
-import sun.misc.IOUtils;
-import sun.nio.ch.IOUtil;
 
 import java.io.*;
 import java.net.URL;
