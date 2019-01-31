@@ -14,8 +14,13 @@
 			$this->variables = new Variables();
 		}
 		
+		function postModList($json) {
+			$stmt = $this->connection->prepare('UPDATE mods SET `modlist` = ? WHERE `idmods` = ?');
+			$stmt->execute([$json, 1]);
+		}
+
 		function getModList() {
-			$stmt = $this->connection->prepare('SELECT * FROM mods WHERE idmod = ?');
+			$stmt = $this->connection->prepare('SELECT * FROM mods WHERE idmods = ?');
 			$stmt->execute([1]);
 			$result = $stmt->fetch();
 			
