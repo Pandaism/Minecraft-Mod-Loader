@@ -47,7 +47,7 @@ public class Service {
     public void getMods() throws IOException {
         final File modFolder = new File(System.getenv("APPDATA") + "/.minecraft/mods/");
         if (!modFolder.exists()) {
-            if(modFolder.createNewFile()) {
+            if(modFolder.mkdir()) {
                 System.out.printf("Mod folder was created: %s\n", modFolder.getAbsolutePath());
             }
         }
