@@ -16,32 +16,34 @@ public class Main {
 
         if(!config.exists()) {
             config.create();
+
+            System.out.println("Configuration file made. Please run the loader again to install mods.");
         } else {
             config.load();
-        }
 
-        Service service = new Service(config);
-        ArgumentParser argumentParser = new ArgumentParser(args);
+            Service service = new Service(config);
+            ArgumentParser argumentParser = new ArgumentParser(args);
 
-        if(argumentParser.hasArguments()) {
-            String key = "-k";
-            String action = "-a";
-            if(argumentParser.contains(key) && argumentParser.contains(action)) {
-                service.setKey(argumentParser.getValue(key));
+            if(argumentParser.hasArguments()) {
+                String key = "-k";
+                String action = "-a";
+                if(argumentParser.contains(key) && argumentParser.contains(action)) {
+                    service.setKey(argumentParser.getValue(key));
 
-                switch (argumentParser.getValue(action)) {
-                    case "post":
-                        String file = "-f";
-                        if(argumentParser.contains(file)) {
-                            service.postMods(argumentParser.getValue(file));
-                        }
-                        break;
-                    default:
-                        service.getMods();
+                    switch (argumentParser.getValue(action)) {
+                        case "post":
+                            String file = "-f";
+                            if(argumentParser.contains(file)) {
+                                service.postMods(argumentParser.getValue(file));
+                            }
+                            break;
+                        default:
+                            service.getMods();
+                    }
                 }
+            } else {
+                service.getMods();
             }
-        } else {
-            service.getMods();
         }
     }
 }
