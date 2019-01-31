@@ -1,5 +1,5 @@
 # Minecraft Mod Loader
-Minecraft Mod Loader is a program designed to install forge mod from my web-server and add it directly to .minecraft/mods
+Minecraft Mod Loader is an application designed to install forge mod from my web-server and add it directly to .minecraft/mods
 
 # Purpose of creation
 The reason for creating this is due to the tedious task of installing mods to Minecraft and sharing the mods for friends to connect and have fun. As described:
