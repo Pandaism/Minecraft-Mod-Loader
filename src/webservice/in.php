@@ -20,7 +20,19 @@
 						break;
 					case 'post':
 						if($key != 'guest') {
-							
+							if(!empty($_GET['json'])) {
+								$json = $_GET['json'];
+
+								if(validateJSON($json)) {
+									$json = $_GET['json'];
+									$database->postModList($json);
+									print($json);
+								} else {
+									print('ERROR_INVALID_JSON_FORMAT');
+								}
+							} else {
+								print('ERROR_EMPTY_JSON');
+							}
 						}
 						break;
 					default:
@@ -35,5 +47,9 @@
 		$database->disconnect();
 	} else {
 		print('ERROR_EMPTY_KEY');
+	}
+
+	function validateJSON($json) {
+		return json_decode($json);
 	}
 ?>
