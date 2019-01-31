@@ -41,7 +41,7 @@ public class Service {
         outputStream.getChannel().transferFrom(readableByteChannel, 0, Long.MAX_VALUE);
         outputStream.close();
 
-        System.out.printf("%s was fetched...\n", mod);
+        System.out.printf("\u001B[35m %s \u001B[0m was fetched...\n", mod);
     }
 
     public void getMods() throws IOException {
@@ -55,7 +55,6 @@ public class Service {
         String json = getJson();
         Moshi moshi = new Moshi.Builder().build();
         JsonAdapter<ModList> adapter = moshi.adapter(ModList.class);
-
         ModList modList = adapter.fromJson(json);
 
         if(modList != null) {
@@ -88,7 +87,7 @@ public class Service {
 
         String content = checkContent(connection);
 
-        if(content.equals(json)) {
+        if(content.replaceAll(" ", "").equals(json)) {
             System.out.println("Mod list updated successfully.");
         } else {
             System.out.println("Mod list updated unsuccessful.");
