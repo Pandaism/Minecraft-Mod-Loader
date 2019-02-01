@@ -1,5 +1,5 @@
-# Minecraft Mod Loader
-Minecraft Mod Loader is an application incorporating the use of HTTP methods and a PHP web-layer to communicate with a MySQL database to install Forge(http://www.minecraftforge.net/forum/) mods from my server and add it directly to the user's .minecraft/mods directory.
+# Minecraft Modloader
+Minecraft Modloader is an application incorporating the use of HTTP methods and a PHP web-layer to communicate with a MySQL database to install Forge(http://www.minecraftforge.net/forum/) mods from my server and add it directly to the user's .minecraft/mods directory.
 
 # Purpose of creation
 The reason for creating this is due to the tedious task of installing mods to Minecraft and sharing the mods for friends to connect and have fun. As described:
